@@ -3,6 +3,7 @@
   fetchCrate,
   pkg-config,
   openssl,
+  lib,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -21,4 +22,13 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ pkg-config ];
 
   buildInputs = [ openssl ];
+
+  meta = with lib; {
+    description = "Minimal CLI launcher for the Toontown Rewritten MMORPG";
+    mainProgram = "shticker_book_unwritten";
+    homepage = "https://github.com/JonathanHelianthicusDoe/shticker_book_unwritten";
+    license = licenses.gpl3Plus;
+    maintainers = [ maintainers.reedrw ];
+    platforms = platforms.linux;
+  };
 }
